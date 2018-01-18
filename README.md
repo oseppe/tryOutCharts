@@ -1,3 +1,3 @@
-##Trying to make charts
+## Trying to make charts
 
 explore dimple, D3, and cartogramph
