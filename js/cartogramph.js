@@ -400,7 +400,9 @@ function makecartogram(visID,geoData,customDataSource,customColumn,customLabel,c
                         return color(d[chloroplethColumn]); 
                     }
                     else{
-                        return mapcolor;
+												// NOTE: custom
+												return getColorForIslandGroup(d['province'])
+                        // return mapcolor;
                     }
                 })
                     .style("fill-opacity", "0.9");  
