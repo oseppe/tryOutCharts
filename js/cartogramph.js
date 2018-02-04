@@ -238,7 +238,9 @@ function makecartogram(visID,geoData,customDataSource,customColumn,customLabel,c
                         
                         }
                         else if(d.properties.NAME_1!="Laguna Lake"){
-                            return mapcolor;
+														// NOTE: custom
+														return getColorForIslandGroup(d.properties.NAME_1)
+                            // return mapcolor;
                         }
                         else{
                             return '#ffffff';
@@ -589,4 +591,38 @@ function makecartogram(visID,geoData,customDataSource,customColumn,customLabel,c
     }
 }
 
+function getColorForIslandGroup(province) {
+	"use strict"
 
+	let color = '#000'
+	
+	if (isLuzon(province)) color = '#0d47a1';
+	else if (isVisayas(province)) color = '#ff6f00';
+	else if(isMindanao(province)) color = '#b71c1c';
+
+	return color;
+}
+
+function isLuzon(province) {
+	"use strict"
+
+	const luzonProvinces = ['METROPOLITAN MANILA', 'ABRA', 'APAYAO', 'BENGUET', 'IFUGAO', 'KALINGA', 'MOUNTAIN PROVINCE', 'ILOCOS NORTE', 'ILOCOS SUR', 'LA UNION', 'PANGASINAN', 'BATANES', 'CAGAYAN', 'ISABELA', 'NUEVA VIZCAYA', 'QUIRINO', 'BATAAN', 'BULACAN', 'NUEVA ECIJA', 'PAMPANGA', 'TARLAC', 'ZAMBALES', 'AURORA', 'BATANGAS', 'CAVITE', 'LAGUNA', 'QUEZON', 'RIZAL', 'MARINDUQUE', 'OCCIDENTAL MINDORO', 'ORIENTAL MINDORO', 'PALAWAN', 'ROMBLON', 'ALBAY', 'CAMARINES NORTE', 'CAMARINES SUR', 'CATANDUANES', 'MASBATE', 'SORSOGON'];
+
+	return luzonProvinces.includes(province.toUpperCase());
+}
+
+function isVisayas(province) {
+	"use strict"
+
+	const visayasProvinces = ['AKLAN', 'ANTIQUE', 'CAPIZ', 'GUIMARAS', 'ILOILO', 'NEGROS OCCIDENTAL', 'BOHOL', 'CEBU', 'NEGROS ORIENTAL', 'SIQUIJOR', 'BILIRAN', 'EASTERN SAMAR', 'LEYTE', 'NORTHERN SAMAR', 'SAMAR', 'SOUTHERN LEYTE'];
+
+	return visayasProvinces.includes(province.toUpperCase());
+}
+
+function isMindanao(province) {
+	"use strict"
+
+	const mindanaoProvinces = ['ZAMBOANGA DEL NORTE', 'ZAMBOANGA DEL SUR', 'ZAMBOANGA SIBUGAY', 'BUKIDNON', 'CAMIGUIN', 'LANAO DEL NORTE', 'MISAMIS OCCIDENTAL', 'MISAMIS ORIENTAL', 'DAVAO DEL NORTE', 'DAVAO DEL SUR', 'DAVAO ORIENTAL', 'COMPOSTELA VALLEY', 'DAVAO OCCIDENTAL', 'NORTH COTABATO', 'SOUTH COTABATO', 'SULTAN KUDARAT', 'SARANGANI', 'AGUSAN DEL NORTE', 'AGUSAN DEL SUR', 'SURIGAO DEL NORTE', 'SURIGAO DEL SUR', 'DINAGAT ISLANDS', 'BASILAN', 'LANAO DEL SUR', 'MAGUINDANAO', 'SULU', 'TAWI-TAWI'];
+
+	return mindanaoProvinces.includes(province.toUpperCase());
+}
