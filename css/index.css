@@ -1,0 +1,17 @@
+.chartbtn {
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+.tiny {
+  font-size: .8em;
+}
+
+.munid {
+  font-size: 1.2em;
+  font-weight: 'bold';
+}
+
+.hidden {
+  display: none;
+}

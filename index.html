@@ -5,15 +5,28 @@
 		<title>Trying out charts</title>
 		<meta name="description" content="stuff">
 		<meta name="author" content="adoboablejoseph">
+		<link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
-		<h2>A Chart</h2>
+		<h2>GRDP 2016</h2>
 		<div id="chart"></div>
-
+		
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/d3.v3.min.js"></script>
 		<script src="js/topojson.v1.min.js"></script>
 		<script src="js/cartogramph.js"></script>
-		<script src="/index.js"></script>
+		
+		<script type="text/javascript">
+			//defaults
+			var GEODATA = "data/provinces.json"; //link to the map json source file
+			
+			//declare variables
+			var customDataSource = "data/grdp2016.csv"; //link to population data
+			var customColumn = "grdp2016"; //thematic variable
+			var customLabel = "GRDP"; //label of variable
+
+			customCartogram("#chart", customDataSource, customColumn, customLabel, "#00aac5");
+
+		</script>
 	</body>
 </html>
